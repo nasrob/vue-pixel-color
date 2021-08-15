@@ -1,12 +1,18 @@
 <template>
-    <div :class="['pixel', color, current ? 'current' : '']"></div>
+    <div @click="interactive && changeColor(color)" :class="['pixel', color, current ? 'current' : '']"></div>
 </template>
 <script>
 export default {
     name: 'Pixel',
     props: {
         color: String,
-        current: Boolean
+        current: Boolean,
+        interactive: Boolean
+    },
+    methods: {
+        changeColor: function(color) {
+            this.eventBus.emit('updatecolor', color)
+        }
     }
 }
 </script>

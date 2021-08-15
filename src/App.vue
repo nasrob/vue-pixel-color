@@ -18,6 +18,11 @@ export default {
     return {
       color: 'white'
     }
+  },
+  mounted() {
+    this.eventBus.on('updatecolor', color => {
+      this.color = color
+    })
   }
 }
 </script>
