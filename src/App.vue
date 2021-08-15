@@ -1,14 +1,23 @@
 <template>
+  <ColorPicker :color=color />
   <Canvas />
 </template>
 
 <script>
 import Canvas from './components/Canvas'
+import ColorPicker from './components/ColorPicker'
+
 
 export default {
   name: 'App',
   components: {
-    Canvas
+    Canvas,
+    ColorPicker
+  },
+  data: function () {
+    return {
+      color: 'white'
+    }
   }
 }
 </script>
