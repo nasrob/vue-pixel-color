@@ -1,5 +1,5 @@
 <template>
-    <div @click="interactive && changeColor(color)" :class="['pixel', color, current ? 'current' : '']"></div>
+    <div @click="handleClick" :class="['pixel', color, current ? 'current' : '']"></div>
 </template>
 <script>
 export default {
@@ -7,11 +7,19 @@ export default {
     props: {
         color: String,
         current: Boolean,
-        interactive: Boolean
+        isInColorPicker: Boolean,
+        isInCanvas: Boolean,
+        index: Number
     },
     methods: {
-        changeColor: function(color) {
-            this.eventBus.emit('updatecolor', color)
+        handleClick: function() {
+            if (this.isInColorPicker) {
+                this.eventBus.emit('updatecolor', this.color)                
+            }
+
+            if (this.isInCanvas) {
+                this.eventBus.emit('clickedpixel', this.index)
+            }
         }
     }
 }
