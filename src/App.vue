@@ -1,14 +1,14 @@
 <template>
-  <Pixel />
+  <Canvas />
 </template>
 
 <script>
-import Pixel from './components/Pixel.vue'
+import Canvas from './components/Canvas'
 
 export default {
   name: 'App',
   components: {
-    Pixel
+    Canvas
   }
 }
 </script>
